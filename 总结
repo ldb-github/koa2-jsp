@@ -1,0 +1,48 @@
+npm init -y
+npm install --save koa
+npm install --save koa-bodyparser@3
+npm install --save koa-router
+npm install --save koa-views
+npm install --save ejs
+npm install --save koa-static
+
+
+GET
+  //从request中获取GET请求
+  let request =ctx.request;
+  let req_query = request.query;
+  let req_querystring = request.querystring;
+
+  //从上下文中直接获取
+  let ctx_query = ctx.query;
+  let ctx_querystring = ctx.querystring;
+
+
+POST
+
+
+
+ctx
+  ctx.request和ctx.req的区别
+    ctx.request: 是Koa2中context经过封装的请求对象，它用起来更直观和简单。
+    ctx.req: 是context提供的node.js原生HTTP请求对象。这个虽然不那么直观，但是可以得到更多的内容，适合我们深度编程。
+
+  ctx.method
+  ctx.request.url
+  ctx.body
+  ctx.cookies
+    ctx.cookies.get(name,[options]): 读取上下文请求中的cookie
+    ctx.cookies.set(name,value,[options]): 在上下文中写入cookie
+
+    options
+        domain：写入cookie所在的域名
+        path：写入cookie所在的路径
+        maxAge：Cookie最大有效时长
+        expires：cookie失效时间
+        httpOnly:是否只用http请求中获得
+        overwirte：是否允许重写
+  
+
+koa-bodyparser
+  解析post数据到ctx.request.body(对象)
+  
